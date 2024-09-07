@@ -8,8 +8,8 @@ export function useAddTodoMutation() {
 		mutationFn: async (content: string) => {
 			return await addTodo(content);
 		},
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ["todos"] });
+		onSuccess: async () => {
+			await queryClient.invalidateQueries({ queryKey: ["todos"] });
 		},
 	});
 }

@@ -40,7 +40,7 @@ const addTodo = () => {
 	newTodo.value = "";
 };
 
-const removeTodo = (id: string) => {
+const removeTodo = (id: number) => {
 	removeTodoMutate(id);
 };
 </script>

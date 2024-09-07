@@ -5,12 +5,12 @@ export function useRemoveTodoMutation() {
 	const queryClient = useQueryClient();
 
 	return useMutation({
-		mutationFn: async (id: string) => {
+		mutationFn: async (id: number) => {
 			await removeTodo(id);
 			return id;
 		},
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ["todos"] });
+		onSuccess: async () => {
+			await queryClient.invalidateQueries({ queryKey: ["todos"] });
 		},
 	});
 }

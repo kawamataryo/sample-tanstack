@@ -2,7 +2,10 @@ import { getTodos } from "@/client";
 import { useQuery } from "@tanstack/vue-query";
 
 export const useTodosData = () => {
-	return useQuery({
+	return useQuery<{
+		id: number;
+		title: string;
+	}[]>({
 		queryKey: ["todos"],
 		queryFn: getTodos,
     staleTime: 1000 * 10, // 10秒後にstaleになる
