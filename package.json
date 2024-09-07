@@ -8,7 +8,7 @@
     "build": "run-p type-check && pnpm run build-only",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "build-only": "vite build",
+    "build-only": "NODE_ENV=development vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "npx @biomejs/biome check --write ./src"
   },
